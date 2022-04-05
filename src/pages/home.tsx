@@ -5,8 +5,8 @@ console.log(headerBg);
 
 export const Home = () => {
   return (
-    <div>
-      <div className="x" style={{backgroundImage: 'url(${headerBg})'}}>你好</div>
+    <div className='home'>
+      <header  style={{backgroundImage: 'url(${headerBg})'}}>你好</header>
     </div>
   );
 };

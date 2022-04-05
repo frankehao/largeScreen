@@ -6,11 +6,13 @@
 
 
 
-.x{
-  width: px(367);
-  height: px(315);
-  border: 1px solid red;
-}
+.home {
+  header{
+    height: px(315);
+    background-size: cover;
+  }
+  
+} 
 #root{
   border: 1px solid  blue;
 }
