@@ -18,9 +18,24 @@ code {
 body {
   font-family: $font-hei;
   font-size: 16px;
+  background-color: #00020b;
 }
 
 #root{
   margin: 0 auto;
   background-color: green;
+  display: flex;
+  flex-direction: column;
+  }
+  
+.App {
+  flex: 1
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: px(16);
 }
