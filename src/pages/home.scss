@@ -1,5 +1,19 @@
 @import '../shared/helper';
-
+%legend {
+  height: px(40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-right: px(10);
+  > span {
+    display: inline-block;
+    width: px(16);
+    height: px(10);
+    border-radius: px(2);
+    margin: 0 px(10);
+  }
+}
 .home {
   font-size: px(16);
   flex: 1;
@@ -210,10 +224,20 @@
     .案发时段 {
       height: px(363);
     }
+    .chart11,
     .chart12 {
       flex: 1;
       display: flex;
       flex-direction: column;
+      > .chart {
+        display: flex;
+        > .main {
+          flex: 1;
+        }
+      }
+      .legend {
+        @extend %legend;
+      }
     }
     .年龄段 {
       display: flex;
@@ -232,19 +256,7 @@
       &-图1,
       &-图2 {
         .legend {
-          height: px(40);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-          padding-right: px(10);
-          > span {
-            display: inline-block;
-            width: px(16);
-            height: px(10);
-            border-radius: px(2);
-            margin: 0 px(10);
-          }
+          @extend %legend;
           .male {
             background: #33a4fa;
           }
@@ -392,4 +404,19 @@
 
 .App {
   flex: 1;
+}
+@keyframes pulse {
+  0% {
+  }
+  70% {
+    /* transform: scale(5);  我们不要用scale 因为他会让 阴影变大*/
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+  }
+  100% {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+  }
 }
