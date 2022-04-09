@@ -2,13 +2,31 @@ import React, { useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
 import { createEchartsOptions } from '../shared/create-echarts-options'
 import { px } from '../shared/px'
+import { baseEchartOptions } from '../shared/base-echarts-options'
 
 export const Chart9 = () => {
   const divRef = useRef(null)
+  const myChart = useRef(null)
+  const data = [0.12, 0.38, 0.43, 0.25, 0.31, 0.17, 0.26, 0.36]
   useEffect(() => {
-    var myChart = echarts.init(divRef.current)
-    myChart.setOption(
+    setInterval(() => {
+      const newData = [
+        Math.random() / 2,
+        Math.random() / 2,
+        Math.random() / 2,
+        Math.random() / 2,
+        Math.random() / 2,
+        Math.random() / 2,
+        Math.random() / 2,
+        Math.random() / 2,
+      ]
+      x(newData)
+    }, 2000)
+  }, [])
+  const x = (data) => {
+    myChart.current.setOption(
       createEchartsOptions({
+        ...baseEchartOptions,
         color: '#F7A110',
         xAxis: {
           type: 'category',
@@ -30,7 +48,7 @@ export const Chart9 = () => {
         series: [
           {
             type: 'line',
-            data: [0.19, 0.2, 0.26, 0.35, 0.26, 0.2, 0.08, 0.06],
+            data: data,
             symbol: 'circle',
             symbolSize: px(12),
             lineStyle: { width: px(2) },
@@ -50,6 +68,10 @@ export const Chart9 = () => {
         ],
       }),
     )
+  }
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current)
+    x(data)
   }, [])
 
   return (

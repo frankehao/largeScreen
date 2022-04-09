@@ -79,6 +79,24 @@ export const Chart6 = () => {
         </div>
         <div className="notes">此地图仅显示了中国的部分区域</div>
       </div>
+      <div className="甘岭 city">
+        <div className="dotted"></div>
+        <div className="pulse1"></div>
+        <div className="pulse2"></div>
+        <div className="pulse3"></div>
+      </div>
+      <div className="边城 city">
+        <div className="dotted"></div>
+        <div className="pulse1"></div>
+        <div className="pulse2"></div>
+        <div className="pulse3"></div>
+      </div>
+      <div className="寒国 city">
+        <div className="dotted"></div>
+        <div className="pulse1"></div>
+        <div className="pulse2"></div>
+        <div className="pulse3"></div>
+      </div>
     </div>
   )
 }

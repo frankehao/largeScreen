@@ -405,18 +405,70 @@
 .App {
   flex: 1;
 }
+
+.甘岭 {
+  position: absolute;
+  top: 51%;
+  right: 52%;
+}
+.边城 {
+  position: absolute;
+  top: 70%;
+  right: 42%;
+}
+.寒国 {
+  position: absolute;
+  top: 60%;
+  right: 72%;
+}
+.city .dotted {
+  width: px(4);
+  height: px(4);
+  background-color: #15b8fd;
+  border-radius: 50%;
+}
+.city.甘岭 .dotted {
+  background-color: #06e1ee;
+}
+.city.边城 .dotted {
+  background-color: #bb31f7;
+}
+.city div[class^='pulse'] {
+  /* 保证我们小波纹在父盒子里面水平垂直居中 放大之后就会中心向四周发散 */
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: px(8);
+  height: px(8);
+  box-shadow: 0 0 px(12) #15b8fd;
+  border-radius: 50%;
+  animation: pulse 1.2s linear infinite;
+}
+.city.寒国 div[class^='pulse'] {
+  box-shadow: 0 0 px(12) #06e1ee;
+}
+.city.边城 div[class^='pulse'] {
+  box-shadow: 0 0 px(12) #bb31f7;
+}
+.city div.pulse2 {
+  animation-delay: 0.4s;
+}
+.city div.pulse3 {
+  animation-delay: 0.8s;
+}
 @keyframes pulse {
   0% {
   }
   70% {
     /* transform: scale(5);  我们不要用scale 因为他会让 阴影变大*/
-    width: 40px;
-    height: 40px;
+    width: px(40);
+    height: px(40);
     opacity: 1;
   }
   100% {
-    width: 70px;
-    height: 70px;
+    width: px(70);
+    height: px(70);
     opacity: 0;
   }
 }

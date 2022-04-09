@@ -10,10 +10,6 @@ export const Chart13 = () => {
     { value: 0.11, name: '雁北' },
     { value: 0.09, name: '五泉山' },
     { value: 0.12, name: '中山路' },
-    { value: 0.06, name: '庆阳路' },
-    { value: 0.08, name: '武都路' },
-    { value: 0.08, name: '酒泉路' },
-    { value: 0.08, name: '天水路' },
   ]
   useEffect(() => {
     var myChart = echarts.init(divRef.current)
