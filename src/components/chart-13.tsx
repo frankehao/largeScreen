@@ -1,20 +1,38 @@
 import React, { useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
 import { createEchartsOptions } from '../shared/create-echarts-options'
-
+import { baseEchartOptions } from '../shared/base-echarts-options'
 export const Chart13 = () => {
   const divRef = useRef(null)
+  const myChart = useRef(null)
   const data = [
-    { value: 0.08, name: '东岗路' },
-    { value: 0.06, name: '段家滩' },
-    { value: 0.11, name: '雁北' },
-    { value: 0.09, name: '五泉山' },
-    { value: 0.12, name: '中山路' },
+    { value: 20, name: '东岗路' },
+    { value: 20, name: '段家滩' },
+    { value: 20, name: '雁北' },
+    { value: 20, name: '五泉山' },
+    { value: 20, name: '中山路' },
   ]
   useEffect(() => {
-    var myChart = echarts.init(divRef.current)
-    myChart.setOption(
+    setInterval(() => {
+      var arr = new Array(5).fill(0)
+      for (var i = 0; i < 100; i++) {
+        var num = Math.trunc(Math.random() * 10)
+        arr[~~(num / 2)]++
+      }
+      const newData = [
+        { value: Math.trunc(arr[0]), name: '东岗路' },
+        { value: Math.trunc(arr[1]), name: '段家滩' },
+        { value: Math.trunc(arr[2]), name: '雁北' },
+        { value: Math.trunc(arr[3]), name: '五泉山' },
+        { value: Math.trunc(arr[4]), name: '中山路' },
+      ]
+      x(newData)
+    }, 2000)
+  }, [])
+  const x = (data) => {
+    myChart.current.setOption(
       createEchartsOptions({
+        ...baseEchartOptions,
         xAxis: {
           data: data.map((i) => i.name),
           axisTick: { show: false },
@@ -42,7 +60,7 @@ export const Chart13 = () => {
           },
           axisLabel: {
             formatter(value) {
-              return (value * 100).toFixed(0) + '%'
+              return value.toFixed(0) + '%'
             },
           },
         },
@@ -64,7 +82,10 @@ export const Chart13 = () => {
         ],
       }),
     )
+  }
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current)
+    x(data)
   }, [])
-
   return <div ref={divRef} className="chart"></div>
 }
