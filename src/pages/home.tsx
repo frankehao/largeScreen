@@ -67,7 +67,10 @@ export const Home = () => {
           </div>
         </section>
       </main>
-      <footer>&copy;Large screen visualization 2020-{year}</footer>
+      <footer>
+        &copy;Large screen visualization 2020-{year} 免责声明：本页数据仅供参考
+        请以官方数据为准
+      </footer>
     </div>
   )
 }
