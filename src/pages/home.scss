@@ -293,7 +293,7 @@
       > table {
         width: 100%;
         table-layout: fixed;
-        margin-top: px(25);
+        margin-top: px(10);
         border-collapse: collapse;
         th,
         td {
@@ -307,7 +307,7 @@
         }
         tbody {
           td {
-            height: px(50);
+            height: px(70);
             width: px(84);
             background: #1c2456;
           }
@@ -318,7 +318,7 @@
       > table {
         tbody {
           td {
-            height: px(26);
+            height: px(30);
           }
         }
       }
